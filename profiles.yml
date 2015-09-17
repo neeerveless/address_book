@@ -1,0 +1,9 @@
+root/post_new:
+    name:
+        - rule: NOT_BLANK
+        message: 必須項目です。
+        - rule: [ 'JLENGTH', 1, 32 ]
+        message: 1~32以内で入力してください。
+        - rule: [ 'REGEX', '[^(!|"|#|\$|%|&|''|\(|\)|=|\^|~|\\|\||@|`|\[|\{|\]|\}|:|\*|;|\+|_|/|\?|>|,|<)]' ]
+        message: [-],[.]以外の記号は使えません。
+    birthday:

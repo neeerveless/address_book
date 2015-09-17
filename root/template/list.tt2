@@ -1,0 +1,12 @@
+[% FOREACH address_info IN address_infos %]
+<tr class="is_used[% address_info.is_used%]">
+    <td id="col_name">[% address_info.name  %]</td>
+    <td id="col_sex">[% IF address_info.sex %]女性[% ELSE %]男性[% END %]</td>
+    <td id="col_age">[% address_info.age  %]</td>
+    <td id="col_address">[% address_info.address  %]</td>
+    <td id="col_delete"><a onclick="makeConfirmWindowByColumn(this, '[% c.uri_for(c.controller('AddressBook').action_for('delete'), [address_info.id]) %]')" >削除</a></td>
+    <td id="col_used"><a href="[% c.uri_for(c.controller('AddressBook').action_for('used'), [address_info.id]) %]">[% IF address_info.is_used %]無効[% ELSE %]有効[% END %]</a></td>
+    <td id="col_edit"><a href="[% c.uri_for(c.controller('AddressBook').action_for('get_edit'), [address_info.id]) %]">更新</a></td>
+    <td id="col_confirm"><a href="[% c.uri_for(c.controller('AddressBook').action_for('detail'), [address_info.id]) %]">確認</a></td>
+</tr>
+[% END %]

@@ -1,0 +1,56 @@
+<table>
+    <tr>
+        <th rowspan="2">name</th>
+        <td><input type="text" name="name"></td>
+    </tr>
+    <tr>
+        <td class="err_msg"><span>[% err_msg.name.0 || err_msg.dbic_unique.0 %]　</span></td>
+    </tr>
+    <tr>
+        <th rowspan="2">birthday</th>
+        <td>
+            <select id="year" name="year"></option></select>年
+            <select id="month" name="month"></option></select>月
+            <select id="day" name="day"></option></select>日
+        </td>
+    </tr>
+    <tr>
+        <td class="err_msg"><span >[% err_msg.birthday_format.0 || err_msg.birthday.0 %]　</span></td>
+    </tr>
+    <tr>
+        <th rowspan="2">sex</th>
+        <td>
+            <input id="0" type="radio" name="sex" value="0">
+            <label for="0">男性</label>
+            <input id="1" type="radio" name="sex" value="1">
+            <label for="1">女性</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="err_msg"><span>[% err_msg.sex.0 %]　</span></td>
+    </tr>
+    <tr>
+        <th rowspan="2">tel</th>
+        <td><input placeholder="012-3456-7890"type="text" name="tel"></td>
+    </tr>
+    <tr>
+        <td class="err_msg"><span>[% err_msg.tel.0 %]　</span></td>
+    </tr>
+    <tr>
+        <th rowspan="2">zip</th>
+        <td>
+            <input id="zip" placeholder="012-3456" type="text" name="zip">
+            <button id="search" type="button" onclick="search_addr()">住所検索</button>
+        </td>
+    </tr>
+    <tr>
+        <td class="err_msg"><span>[% err_msg.zip.0 %]　</span></td>
+    </tr>
+    <tr>
+        <th rowspan="2">address</th>
+        <td><input type="text" name="address"></td>
+    </tr>
+    <tr>
+        <td class="err_msg"><span>[% err_msg.address.0 %]　</span></td>
+    </tr>
+</table>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="[% base _ "static/js/make_select_date.js" %]"></script>
+        <script src="[% base _ "static/js/confirm_window.js" %]"></script>
+        <link rel="stylesheet" href="[% base _ "static/css/confirm_window.css" %]">
+        <link rel="stylesheet" href="[% base _ "static/css/header.css" %]">
+        <link rel="stylesheet" href="[% base _ "static/css/list.css" %]">
+        <title>トップ</title>
+    </head>
+    <body>
+        [% INCLUDE header.tt2 %]
+        <div id="wrapper">
+            <h1>トップ</h1>
+            <table>
+                <tr>
+                    <th><a href="[% c.uri_for(c.controller('Root').action_for('index'),
+                    {
+                    p=>page.first_page,
+                    o=>next_order,
+                    b=>'name',
+                    }) %]">name[% IF by == 'name' %][% IF next_order == 'desc'%]▼[% ELSE %]▲[% END %][% ELSE %]▽[% END %]</a></th>
+                    <th><a href="[% c.uri_for(c.controller('Root').action_for('index'),
+                    {
+                    p=>page.first_page,
+                    o=>next_order,
+                    b=>'sex',
+                    }) %]">sex[% IF by == 'sex' %][% IF next_order == 'desc'%]▼[% ELSE %]▲[% END %][% ELSE %]▽[% END %]</a></th>
+                    <th><a href="[% c.uri_for(c.controller('Root').action_for('index'),
+                    {
+                    p=>page.first_page,
+                    o=>next_order,
+                    b=>'birthday',
+                    }) %]">age[% IF by == 'birthday' %][% IF next_order == 'desc'%]▼[% ELSE %]▲[% END %][% ELSE %]▽[% END %]</a></th>
+                    <th><a href="[% c.uri_for(c.controller('Root').action_for('index'),
+                    {
+                    p=>page.first_page,
+                    o=>next_order,
+                    b=>'address',
+                    }) %]">address[% IF by == 'address' %][% IF next_order == 'desc'%]▼[% ELSE %]▲[% END %][% ELSE %]▽[% END %]</a></th>
+                    <th colspan="4">detail</th>
+                </tr>
+            [% INCLUDE list.tt2 %]
+            </table>
+            <div id="lightbox-panel"></div>
+            <div id="black-window" onclick="closeConfirmWindow()"></div>
+            <div id="pager">
+                <ul>
+                    <li><a href="[% c.uri_for(c.controller('Root').action_for('/'),
+                        {
+                        p=>page.first_page,
+                        o=>order,
+                        b=>by,
+                        }) %]">&lt;&lt;</a></li>
+                    <li><a [% UNLESS page.previous_page %] class="no_link" [% END %] href="[% c.uri_for(c.controller('Root').action_for('/'),
+                        {
+                        p=>page.previous_page,
+                        o=>order,
+                        b=>by,
+                        }) %]">&lt;</a></li>
+                [% FOREACH [page.first_page..page.last_page] %]
+                    <li[% IF loop.count == page.current_page %] id="current_page" [% END %] ><a href="[% c.uri_for(c.controller('Root').action_for('/'),
+                        {
+                        p=>loop.count,
+                        o=>order,
+                        b=>by,
+                        }) %]">[% loop.count %]</a></li>
+                [% END %]
+                    <li><a [% UNLESS page.next_page %] class="no_link" [% END %] href="[% c.uri_for(c.controller('Root').action_for('/'),
+                        {
+                        p=>page.next_page,
+                        o=>order,
+                        b=>by,
+                        }) %]">&gt;</a></li>
+                    <li><a href="[% c.uri_for(c.controller('Root').action_for('/'), {
+                        p=>page.last_page,
+                        o=>order,
+                        b=>by,
+                        }) %]">&gt;&gt;</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html

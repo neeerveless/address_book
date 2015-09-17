@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="[% base _ "static/js/make_select_date.js" %]"></script>
+        <script src="[% base _ "static/js/ZipToAddress.js" %]"></script>
+        <link rel="stylesheet" href="[% base _ "static/css/header.css" %]">
+        <link rel="stylesheet" href="[% base _ "static/css/form.css" %]">
+        <title>新規登録</title>
+    </head>
+    <body onload="initialize([% fdat.year %], [% fdat.month %],[% fdat.day %])">
+        [% INCLUDE header.tt2 %]
+        <div id="wrapper">
+            <h1>新規登録</h1>
+            <form method="POST" action="[% c.uri_for(c.controller('AddressBook').action_for('post_new')) %]">
+                [% INCLUDE form.tt2 %]
+                <button id="submit" type="submit">登録</button>
+            </form>
+        </div>
+    </body>
+</html

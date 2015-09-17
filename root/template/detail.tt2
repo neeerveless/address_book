@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="[% base _ "static/js/make_select_date.js" %]"></script>
+        <script src="[% base _ "static/js/confirm_window.js" %]"></script>
+        <link rel="stylesheet" href="[% base _ "static/css/confirm_window.css" %]">
+        <link rel="stylesheet" href="[% base _ "static/css/header.css" %]">
+        <link rel="stylesheet" href="[% base _ "static/css/detail.css" %]">
+        <title>詳細確認</title>
+    </head>
+    <body>
+        [% INCLUDE header.tt2 %]
+        <div id="wrapper">
+            <h1>詳細確認</h1>
+            <div class="clear"></div>
+            <div id="content">
+                <table [% UNLESS address_info.is_used %]id="disused"[% END %]>
+                    <tr>
+                        <th>name</th>
+                        <td>[% address_info.name %]</td>
+                    </tr>
+                    <tr>
+                        <th>birthday</th>
+                        <td>[% address_info.birthday %]</td>
+                    </tr>
+                    <tr>
+                        <th>age</th>
+                        <td>[% address_info.age %]</td>
+                    </tr>
+                    <tr>
+                        <th>sex</th>
+                        <td>[% IF address_info.sex %]女性[% ELSE %]男性[% END %]</td>
+                    </tr>
+                    <tr>
+                        <th>tel</th>
+                        <td>[% address_info.tel %]</td>
+                    </tr>
+                    <tr>
+                        <th>zip</th>
+                        <td>[% address_info.zip %]</td>
+                    </tr>
+                    <tr>
+                        <th>address</th>
+                        <td>[% address_info.address %]</td>
+                    </tr>
+                </table>
+            </div>
+            <button id="cancel" onclick="showConfirmWindow()">削除</button>
+            <button id="used" onclick="location.href='[% c.uri_for(c.controller('AddressBook').action_for('used'), [address_info.id]) %]'">[% IF address_info.is_used %]無効[% ELSE %]有効[% END %]</button>
+            <button id="submit" onclick="location.href='[% c.uri_for(c.controller('AddressBook').action_for('get_edit'), [address_info.id]) %]'">更新</button>
+            <div id="lightbox-panel">
+                <table id="confirm_table">
+                    <tr>
+                        <th>name</th>
+                        <td>[% address_info.name %]</td>
+                    </tr>
+                    <tr>
+                        <th>birthday</th>
+                        <td>[% address_info.birthday %]</td>
+                    </tr>
+                    <tr>
+                        <th>age</th>
+                        <td>[% address_info.age %]</td>
+                    </tr>
+                    <tr>
+                        <th>sex</th>
+                        <td>[% IF address_info.sex %]女性[% ELSE %]男性[% END %]</td>
+                    </tr>
+                    <tr>
+                        <th>tel</th>
+                        <td>[% address_info.tel %]</td>
+                    </tr>
+                    <tr>
+                        <th>zip</th>
+                        <td>[% address_info.zip %]</td>
+                    </tr>
+                    <tr>
+                        <th>address</th>
+                        <td>[% address_info.address %]</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            上記の情報を削除しますか？
+                        </th>
+                        <td>
+                            <button class="negative_btn" onclick="closeConfirmWindow()">取消</button>
+                            <button class="positive_btn" onclick="deleteExecute('[% c.uri_for(c.controller('AddressBook').action_for('delete'), [address_info.id]) %]')">実行</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="black-window" onclick="closeConfirmWindow()"></div>
+        </div>
+    </body>
+</html

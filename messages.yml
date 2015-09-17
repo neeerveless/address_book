@@ -1,0 +1,26 @@
+update_or_create_address_book:
+    dbic_unique:
+        DBIC_UNIQUE: '既に登録されている名前と電話番号です。'
+    name:
+        NOT_BLANK: '必須項目です。'
+        JLENGTH: '1~32文字以内で入力してください。'
+        REGEX: '[-],[.]以外の記号は使えません。'
+    birthday_format:
+        DATE: '有効な日付を入力してください。'
+    birthday:
+        LESS_THAN: '今日より前の日を入力してください。'
+    sex:
+        NOT_BLANK: '必須項目です。'
+        REGEX: '男性または女性を選択してください。'
+    tel:
+        NOT_BLANK: '必須項目です。'
+        LENGTH: '12~13文字で入力してください。'
+        REGEX: '[???-????-????]のフォーマットで入力してください。'
+    zip:
+        NOT_BLANK: '必須項目です。'
+        LENGTH: '8文字で入力してください。'
+        REGEX: '[???-????]のフォーマットで入力してください。'
+    address:
+        NOT_BLANK: '必須項目です。'
+        JLENGTH: '1~255文字以内で入力してください。'
+        REGEX: '[-],[.]以外の記号は使えません。'

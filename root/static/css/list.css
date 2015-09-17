@@ -1,0 +1,113 @@
+div#wrapper table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    box-shadow: 3px 3px 5px -3px rgba(37, 55, 63, 0.50);
+    -webkit-box-shadow: 3px 3px 5px -3px rgba(37, 55, 63, 0.50);
+    -moz-box-shadow: 3px 3px 5px -3px rgba(37, 55, 63, 0.50);
+}
+
+div#wrapper table #col_name {
+    width: 24%;
+}
+
+div#wrapper table #col_sex, #col_age, #col_delete, #col_used, #col_edit, #col_confirm {
+    width: 6%;
+    text-align: center;
+}
+
+div#wrapper table #col_address {
+    width: 40%;
+}
+
+div#wrapper table tr.is_used0 {
+    background-color: lightgray;
+}
+
+div#wrapper table th:last-child {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+div#wrapper table th:first-child {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+div#wrapper table th {
+    background: -moz-linear-gradient(#05054B, #040438);
+    background: -webkit-gradient(linear, left top, left bottom, from(#05054B), to(#040438));
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    color: white;
+    padding: 6px;
+}
+
+div#wrapper table th a {
+    color: white;
+}
+
+div#wrapper table td {
+    border: 1px solid black;
+    padding: 4px;
+}
+
+div#wrapper table td a {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+div#pager {
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+div#pager a {
+    color: white;
+}
+
+div#pager ul {
+    position: relative;
+    padding-bottom: 5px;
+    left: 50%;
+    float: left;
+}
+
+div#pager ul li {
+    position: relative;
+    left: -50%;
+    float: left;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+div#pager ul li {
+    background: -moz-linear-gradient(#05054B, #040438);
+    background: -webkit-gradient(linear, left top, left bottom, from(#05054B), to(#040438));
+    text-align: center;
+    padding: 4px 12px;
+    font-weight: bolder;
+    box-shadow: 2px 2px 3px 1px rgba(37, 55, 63, 0.50);
+    -webkit-box-shadow: 2px 2px 3px 1px rgba(37, 55, 63, 0.50);
+    -moz-box-shadow: 2px 2px 3px 1px rgba(37, 55, 63, 0.50);
+}
+
+div#pager ul li#current_page {
+    background: -moz-linear-gradient(#CA1228, #B81024);
+    background: -webkit-gradient(linear, left top, left bottom, from(#CA1228), to(#B81024));
+}
+
+.no_link {
+    pointer-events: none;
+    cursor: default;
+}
+
+
+
+
+
+

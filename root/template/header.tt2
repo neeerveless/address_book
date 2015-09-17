@@ -1,0 +1,23 @@
+<header>
+    <div>
+        <h1 id="log"><a href="[% c.uri_for(c.controller('Root').action_for('index')) %]">HADB</a></h1>
+        <nav>
+            <form action="[% c.uri_for(c.controller('Root').action_for('search')) %]" method="GET">
+                <ul>
+                    <li><a href="[% c.uri_for(c.controller('AddressBook').action_for('get_new')) %]">新規作成</a> |</li>
+                    <li>
+                        <select name="c" class="easy-select-box">
+                        <option value="name" selected>名前</option>
+                        <option value="sex">性別</option>
+                        <option value="birthday">年齢</option>
+                        <option value="address">住所</option>
+                        </select>
+                    </li>
+                    <li><input type="text" name="q"></li>
+                    <li><input type="submit" value="検索"></li>
+                </ul>
+            </form>
+        </nav>
+    </div>
+</header>
+<div class="clear"></div>
